@@ -20,8 +20,8 @@ const (
 	nodeWidthCollapsed      float32 = 220
 	nodeHeightCollapsed     float32 = 110
 	nodeWidthExpanded       float32 = 380
-	maxNodeHeightExpanded   float32 = 600
-	maxAnswerLinesCollapsed         = 2
+	maxNodeHeightExpanded   float32 = 1200
+	maxAnswerLinesCollapsed         = 20
 	nodeTitleMaxLength              = 25
 )
 
@@ -232,12 +232,13 @@ func (nw *NodeWidget) MinSize() fyne.Size {
 		}
 	} else {
 		answerContentHeight = defaultTextSize * 1.2 * float32(maxAnswerLinesCollapsed)
-		if answerContentHeight > 60 {
-			answerContentHeight = 60
+		if answerContentHeight > 120 {
+			answerContentHeight = 120
 		}
 		if answerContentHeight < 20 {
 			answerContentHeight = 20
 		}
+		log.Println(answerContentHeight)
 	}
 
 	if nw.data.Expanded {
